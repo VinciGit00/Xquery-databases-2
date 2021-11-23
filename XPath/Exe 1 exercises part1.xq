@@ -32,23 +32,22 @@ let $x := distinct-values(//author[@position="02"])
 
 (:7:all the papers with only 2 authors:)
 (:Occhio alla selezione-> è una selezione shiftata:)
-let $x := //article/authors[count(author)<2]/../title
+let $x := //article/authors[count(author)<2]/../title  (:Devo mettere 1 spazio perchè faccio 1 salto:)
 (:return $x:)
 
-let $x := //author[@position="01" and last()=position()]//../../title
+let $x := //author[@position="01" and last()=position()]//../../title (:Devo mettere 2 spazi perchè faccio 2 salti:)
 (:return $x:)
 
 (:8: :)
-let $x := //authors/../..
+let $x := //authors/../..(:Devo mettere 2 spazi perchè faccio 2 salti:)
 (:or: //authors/../parent::*:)
 (:return $x:)
 
 (:11-> get all document attributes inside the document:)
 (:Poi risale al nome-> prende tutti quelli che hanno un attributo a livello più basso e ne 
 restituisce il nome del nodo:)
-(:Resituzione di tutit gli attributi:)
+(:Resituzione di tutti gli attributi:)
 let $x := distinct-values(//@*)
-
 
 let $x := distinct-values(//@*/../name())
 return $x
