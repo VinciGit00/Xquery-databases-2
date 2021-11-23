@@ -43,8 +43,14 @@ let $x := //authors/../..
 (:or: //authors/../parent::*:)
 (:return $x:)
 
-(:11-> get all document attributes inside the docume:)
-let $x := //@*/../name()
+(:11-> get all document attributes inside the document:)
+(:Poi risale al nome-> prende tutti quelli che hanno un attributo a livello più basso e ne 
+restituisce il nome del nodo:)
+(:Resituzione di tutit gli attributi:)
+let $x := distinct-values(//@*)
+
+
+let $x := distinct-values(//@*/../name())
 return $x
 
 
