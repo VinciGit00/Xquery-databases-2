@@ -2,6 +2,10 @@
 
 (:Restituisce il parent di articles-> quindi issue:)
 let $x := /SigmodRecord/issue/articles/article/author/parent::*
+
+(:Oppure:)
+let $x := //author/..
+
 (:return $x:)
  
 (:Authors contiene una serie di author:)
