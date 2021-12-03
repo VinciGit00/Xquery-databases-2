@@ -5,7 +5,6 @@ let $x := /SigmodRecord/issue/articles/article/author/parent::*
 
 (:Oppure:)
 let $x := //author/..
-
 (:return $x:)
  
 (:Authors contiene una serie di author:)
@@ -23,7 +22,14 @@ let $x := /SigmodRecord/issue/articles/article/authors/author/..
 
 (:Prendo solo il primo autore anche se ce ne sono più di 1-> primo:)
 (:Extract only the author with attribute position 0--> we start at counting from 0:)let $x := /SigmodRecord/issue/articles/article/authors/author[1]
+(:return $x:)
 
-return $x
+(:Esempi di query che danno lo stesso risultato:)let $x := //@*
+let $x := //@position
+
+
+(:Seleziono SOLO gli attributi di author:)
+let  $x:= distinct-values(//author/@position) (:Seleziono gli attributi:)
+return $x 
 
 (:@* -> significa che basta che abbia un attributo qualsiasi:)
